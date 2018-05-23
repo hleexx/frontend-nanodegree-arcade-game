@@ -50,7 +50,13 @@ Player.prototype.render = function() {
 };
 
 Player.prototype.handleInput = function(direction) {
+    this.speedX = 2;
+    this.speedY = 2;
+    keys = [];
 
+    if (keys[38]) {
+        this.y = this.speedY;
+    }
 };
 
 // Now instantiate your objects.
