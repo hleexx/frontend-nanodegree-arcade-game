@@ -24,7 +24,8 @@ Enemy.prototype.update = function(dt) {
         this.x = -1;
     }
 
-    // *** Collision: If Enemy position and Player position meet, all positions will reset to the beginning ***
+// *** Collision: If Enemy position and Player position meet, all positions will reset to the beginning ***
+Enemy.prototype.checkCollisions = function() {
     if (this.x && this.y === Player.x && Player.y) {
         Player.x = 2;
         Player.y = 5;
@@ -34,7 +35,9 @@ Enemy.prototype.update = function(dt) {
         allEnemies[1].y = 2;
         allEnemies[2].x = 3;
         allEnemies[2].y = 3;
+        console.log("collision!");
     }
+}
 
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
