@@ -15,7 +15,7 @@ var Enemy = function(x,y) {
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
     this.x = this.x + 10;
-    if (this.x === 1000) {
+    if (this.x > 605) {
         this.x = -100;
     }
 
@@ -35,8 +35,8 @@ Enemy.prototype.render = function() {
 var Player = function(sprite) {
     this.sprite = sprite;
     Resources.load(this.sprite);
-    this.x = 200;
-    this.y = 400;
+    this.x = 202;
+    this.y = 83*5-40;
 };
 
 Player.prototype.update = function(dt) {
@@ -50,18 +50,36 @@ Player.prototype.render = function() {
 };
 
 Player.prototype.handleInput = function(direction) {
-    this.speedX = 2;
-    this.speedY = 2;
-    keys = [];
+    if (direction === 'left') {
+        this.x = this.x - 101;
+    } else if (direction === 'up') {
+        this.y = this.y - 83;
+    } else if (direction === 'right') {
+        this.x = this.x + 101;
+    } else {
+        this.y = this.y + 83;
+    } 
 
-    if (keys[38]) {
-        this.y = this.speedY;
+    if (this.x > 404) {
+        this.x = 404;
+    }
+
+    if (this.x < 0) {
+        this.x = 0;
+    }
+
+    if (this.y > 375) {
+        this.y = 375;
+    }
+
+    if (this.y < 0) {
+        this.y = 0;
     }
 };
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-allEnemies = [new Enemy(60,60), new Enemy(140,140), new Enemy(220,220)];
+allEnemies = [new Enemy(101,83-40), new Enemy(202,166-40), new Enemy(303,249-40)];
 // Place the player object in a variable called player
 player = new Player('images/char-horn-girl.png');
 
