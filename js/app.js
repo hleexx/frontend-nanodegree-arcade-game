@@ -1,3 +1,4 @@
+// *** 3 asterisks surrounding comments denotes the changes Hellen made vs instructions and code given by Udacity at the beginning ***
 // Enemies our player must avoid
 // *** Added 3 parameters for Enemy to manipulate x, y position and speed ***
 var Enemy = function(x,y,speed) {
@@ -24,25 +25,30 @@ Enemy.prototype.update = function(dt) {
         this.x = -1;
     }
 
+    this.checkCollisions();
+
+};
+
 // *** Collision: If Enemy position and Player position meet, all positions will reset to the beginning ***
 Enemy.prototype.checkCollisions = function() {
-    if (this.x && this.y === Player.x && Player.y) {
-        Player.x = 2;
-        Player.y = 5;
+    // *** Get the absolute value of the distance between enemy and player's positions to set when they collide with each other ***
+    if ((Math.abs(this.x - player.x) < .5) && (Math.abs(this.y - player.y) < 0.1)) {
+        alert("Oh no, you got hit! :((((((");
+        // *** Resets player position and enemies' positions ***
+        player.x = 2;
+        player.y = 5;
         allEnemies[0].x = 1;
         allEnemies[0].y = 1;
         allEnemies[1].x = 2;
         allEnemies[1].y = 2;
         allEnemies[2].x = 3;
         allEnemies[2].y = 3;
-        console.log("collision!");
     }
-}
+};
 
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-};
 
 // Draw the enemy on the screen, required method for game
 // *** Added pixel positioning for x and y so that Enemy sprites will be in line with the lanes/images ***
@@ -67,7 +73,7 @@ Player.prototype.update = function(dt) {
     // all computers.
     // *** Player makes it through and wins the game! An alert pops up congratulating the player and resets the game/player's position ***
     if (this.y === 0) {
-        alert("Congrats!");
+        alert("Congratulations, you made it! :)))))))))");
         this.x = 2;
         this.y = 5;
     }
