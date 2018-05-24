@@ -33,7 +33,7 @@ No installation required -- just open `index.html` in your web browser
 
 ## Authors
 
-* **Udacity** - *Initial work* - [udacity] (https://github.com/udacity)
+* **Udacity** - *Initial work* - [udacity](https://github.com/udacity)
 * **Hellen Lee** - *Modified work* - [hleexx](https://github.com/hleexx)
 
 ## License
