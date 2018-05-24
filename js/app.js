@@ -55,6 +55,12 @@ Player.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    // Player makes it through and wins the game! An alert pops up congratulating the player and resets the game/player's position
+    if (this.y === 0) {
+        alert("Congrats!");
+        this.x = 2;
+        this.y = 5;
+    }
 };
 
 Player.prototype.render = function() {
