@@ -20,6 +20,17 @@ Enemy.prototype.update = function(dt) {
         this.x = -1;
     }
 
+    if (this.x && this.y === Player.x && Player.y) {
+        allEnemies[0].x = 1;
+        allEnemies[0].y = 1;
+        allEnemies[1].x = 2;
+        allEnemies[1].y = 2;
+        allEnemies[2].x = 3;
+        allEnemies[2].y = 3;
+        Player.x = 2;
+        Player.y = 5;
+    }
+
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
